@@ -451,10 +451,7 @@ class BoolVariable(AbstractVariable):
         layout.addWidget(label, 0, 0)
 
         value_widget = QtWidgets.QCheckBox()
-        if isinstance(value, bool):
-            value_widget.setCheckState(
-                QtCore.Qt.Checked if value else QtCore.Qt.Unchecked
-            )
+        value_widget.setChecked(value)
         value_widget.stateChanged.connect(
             lambda x: self.value_changed.emit({"value": x})
         )
